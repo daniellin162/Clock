@@ -1,6 +1,10 @@
 import dayjs from 'dayjs';
 import objectSupport from "dayjs/plugin/objectSupport";
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 dayjs.extend(objectSupport);
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const mapDays = {
     '0': 'Monday',
@@ -34,6 +38,13 @@ const day = dayjs().day();
 const dayOfMonth = dayjs().date();
 const month = dayjs().month();
 const year = dayjs().year();
+const zone = dayjs.tz.guess();
+
+// Current Time Zone
+const timeZone = document.querySelector('#time-zone');
+const splitZone = zone.split('/');
+const formatZone = `${splitZone[0]} / ${splitZone[1]}`;
+timeZone.innerText = formatZone;
 
 // Current Time
 const timeNow = `${hour < 10 ? '0' + hour : hour}:${minute < 10 ? '0' + minute : minute}:${second < 10 ? '0' + second : second}`;
@@ -44,5 +55,3 @@ time.innerText = timeNow;
 const dateNow = `${mapDays[day]}, ${day < 10 ? '0' + day : day} ${mapMonths[month]}, ${year}`;
 const date = document.querySelector('#date');
 date.innerText = dateNow;
-
-
