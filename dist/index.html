@@ -10,9 +10,41 @@
 
 <body>
     <div class="container">
-        <div id="time-zone">Europe / London</div>
+        <div id="first-third">
+            <div id="time-zone">Europe / London</div>
+            <button data-micromodal-trigger="modal-1">
+                Timezone
+            </button>
+        </div>
         <div id="time"></div>
         <div id="date">monday, 1 june, 2023</div>
+    </div>
+    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                <header class="modal__header">
+                    <h2 class="modal__title" id="modal-1-title">
+                        Change Timezone
+                    </h2>
+                    <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                </header>
+                <main class="modal__content" id="modal-1-content">
+                    <label for="inputTimezone">Choose a Timezone:</label>
+
+                    <select name="inputTimezone" id="inputTimezone">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
+                </main>
+                <footer class="modal__footer">
+                    <button class="modal__btn modal__btn-primary">Apply</button>
+                    <button class="modal__btn" data-micromodal-close
+                        aria-label="Close this dialog window">Close</button>
+                </footer>
+            </div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

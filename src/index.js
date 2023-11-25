@@ -2,6 +2,8 @@ import dayjs from 'dayjs';
 import objectSupport from "dayjs/plugin/objectSupport";
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
+import MicroModal from 'micromodal';
+
 dayjs.extend(objectSupport);
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -52,6 +54,8 @@ const time = document.querySelector('#time');
 time.innerText = timeNow;
 
 // Current Date
-const dateNow = `${mapDays[day]}, ${day < 10 ? '0' + day : day} ${mapMonths[month]}, ${year}`;
+const dateNow = `${mapDays[day]}, ${dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth} ${mapMonths[month]}, ${year}`;
 const date = document.querySelector('#date');
 date.innerText = dateNow;
+
+MicroModal.init();
